@@ -1,0 +1,18 @@
+{
+  "name": "callbag-skip",
+  "version": "1.0.0",
+  "description": "Callbag operator that skips the first N data points of a source",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/staltz/callbag-skip.git"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test.js"
+  },
+  "author": "staltz.com",
+  "license": "MIT",
+  "devDependencies": {
+    "tape": "^4.8.0"
+  }
+}
