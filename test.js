@@ -93,7 +93,7 @@ test('it skips from a pullable source', t => {
   }, 300);
 });
 
-test('it takes an async listenable source', t => {
+test('it skips an async listenable source', t => {
   t.plan(19);
   const upwardsExpected = [
     [0, 'function'], 
@@ -111,7 +111,6 @@ test('it takes an async listenable source', t => {
 
   function makeSource() {
     let sent = 0;
-    let id;
     const source = (type, data) => {
       const e = upwardsExpected.shift();
       t.equals(type, e[0], 'upwards type is expected: ' + e[0]);
@@ -124,8 +123,6 @@ test('it takes an async listenable source', t => {
         setTimeout(() => { sink(1, 40); }, 400);
         setTimeout(() => { sink(1, 50); sink(2); }, 500);
         sink(0, source);
-      } else if (type === 2) {
-        clearInterval(id);
       }
     };
     return source;
